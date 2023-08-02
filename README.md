@@ -47,7 +47,6 @@
 
 1. React 폴더에서 새로운 폴더 생성 `mkdir react-000-hello`
 2. 프로젝트 시작 : `npm init`
-
 3. package.json 에 다음 설정
 
 ```json
@@ -78,4 +77,42 @@ npm install react-scripts
 ```
 
 5. project 구성
-1. `public 폴더 생성`, `index.html` 파일 생성
+1. `public 폴더 생성`, `index.html` 파일 생성 하고 `div#root` tag 생성
+
+```html
+<body>
+  <div id="root"></div>
+</body>
+```
+
+2. `src` 폴더 생성. `App.js` 파일 생성하고
+
+```js
+const App = () => {
+  return (
+    <div>
+      <button>클릭하세요</button>
+    </div>
+  );
+};
+export default App;
+```
+
+3. `src/index.js` 파일 생성하고
+
+```js
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+const root = ReactDOM.createRoot(document.querySelector("#root"));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+```
+
+## create-react-app 을 이용한 React Project 생성
+
+`npx create-react-app [project]`
