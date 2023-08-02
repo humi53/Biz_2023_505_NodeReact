@@ -16,31 +16,3 @@
 
 1. AngularJS, ReactJS, VeuJS 등이 연달아 발표되면서 JS 를 사용한 Front-End 개발환경이 형성된다.
 2. Angular, React, Veu 라는 단축이름으로 불리우고, Svelt 등의 새로운 도구가 탄생하고 있다
-3. package.json 에 다음 설정
-
-```json
-{
-  "name": "react-000-hello",
-  "version": "1.0.0",
-  "description": "",
-  "private": true,
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
-  },
-  "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
-    "development": ["last 1 chrome version"]
-  },
-  "author": "",
-  "license": "ISC"
-}
-```
-
-4. dependency 설정
-
-```bash
-npm install react
-npm install react-dom
-npm install react-scripts
-```
