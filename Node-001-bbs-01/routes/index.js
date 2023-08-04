@@ -22,7 +22,7 @@ router.get("/insert", async (req, res) => {
   };
   try {
     await BBS.create(mBBS);
-    await BBS.update(req.body, { where: { b_seq: req_body.b_seq } });
+    // await BBS.update(req.body, { where: { b_seq: req_body.b_seq } });
     res.redirect("/bbs");
   } catch (error) {
     res.send("SQL ERROR");
