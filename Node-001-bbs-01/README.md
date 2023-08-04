@@ -25,3 +25,7 @@ npm install -g mysql2
 ## 서버 폴더에서 node_modules 다시 생성(다운로드 실행)
 
 `npm install`
+
+## 서버 Start
+
+`nodemon`
