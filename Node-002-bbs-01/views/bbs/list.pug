@@ -2,7 +2,7 @@ extends ../layout
 
 block content 
     h1 여기는 BBS
-    table 
+    table
         tr 
             th SEQ 
             th 작성일자
@@ -10,15 +10,13 @@ block content
             th 제목
             th 조회수
         each item in BBS 
-            tr
-                td= item.b_seq 
+            tr 
+                td= item.b_seq
                 td= item.b_date 
-                td= item.b_nickname
+                td= item.b_nickname 
                 td= item.b_title 
                 td= item.b_viewcount
     .bbs.button
-        button.bbs.insert 게시판 글쓰기
-
-
+        button.btn.bbs.insert 게시판 글쓰기
 
 

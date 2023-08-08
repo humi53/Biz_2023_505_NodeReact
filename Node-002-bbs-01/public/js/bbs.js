@@ -4,23 +4,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const b_images = document.querySelector("#b_images");
 
   const mainImageThumb = document.querySelector("div.image.main");
-  const galleryImageThumb = document.querySelector("div.image.gallery");
+  const galleryImageThumb = document.querySelector(
+    "div.image.gallery"
+  );
 
   b_images?.addEventListener("change", (e) => {
     const files = e.target.files;
     galleryImageThumb.innerHTML = "";
-    for (let file of files) {
-      const reader = new FileReader();
-      reader.onload = (fe) => {
-        const img = document.createElement("img");
-
-        img.src = fe.target.result;
-        img.width = 100;
-        img.height = 100;
-        galleryImageThumb.appendChild(img);
-      };
-      reader.readAsDataURL(file);
-    }
+    imagesPreview(e.target, galleryImageThumb);
+    // for (let file of files) {
+    //   const reader = new FileReader();
+    //   reader.onload = (fe) => {
+    //     const img = document.createElement("img");
+    //     img.src = fe.target.result;
+    //     img.width = 100;
+    //     img.height = 100;
+    //     galleryImageThumb.appendChild(img);
+    //   };
+    //   reader.readAsDataURL(file);
+    // }
   });
 
   // type="file" 인 input box 에서 파일을 선택한 후 발생하는 event
@@ -39,15 +41,17 @@ document.addEventListener("DOMContentLoaded", () => {
       mainImageThumb.appendChild(img);
     };
     reader.readAsDataURL(file);
-    // img.src = URL.createObjectURL(file);
-    // img.width = 100;
-    // img.height = 100;
-    // mainImageThumb.innerHTML = "";
-    // mainImageThumb.appendChild(img);
+    /*
+    img.src = URL.createObjectURL(file);
+    img.width = 100;
+    img.height = 100;
+    mainImageThumb.innerHTML = "";
+    mainImageThumb.appendChild(img);
+    */
   });
 
   btn_insert?.addEventListener("click", () => {
     // GET /bbs/insert 요청하기
-    document.location.href = "bbs/insert";
+    document.location.href = "/bbs/insert";
   });
 });
