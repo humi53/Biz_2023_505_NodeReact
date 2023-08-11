@@ -8,4 +8,5 @@ const BBsMain = () => {
     </>
   );
 };
+
 export default BBsMain;

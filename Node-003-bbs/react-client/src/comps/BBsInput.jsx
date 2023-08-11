@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { filePreview, filesPreview } from "../modules/imagePreview";
+import { useState, useRef } from "react";
+import { filePreview, filesPreview } from "../modules/ImagePreview";
 import { bbsInsert } from "../modules/FetchModule";
+
 const BBsInput = () => {
   const [bbs, setBBs] = useState({
     b_seq: 0,
@@ -10,6 +11,7 @@ const BBsInput = () => {
   });
   const [image, setImage] = useState("");
   const [images, setImages] = useState([]);
+  const imgRef = useRef(null);
 
   const setMainImage = (image) => {
     setImage(image);
@@ -27,11 +29,13 @@ const BBsInput = () => {
   });
 
   const fileChangeHandler = async (e) => {
+    console.log("file Change");
     const imgSrc = await filePreview(e.target.files[0]);
+    // console.log(imgSrc);
     setImage(imgSrc);
   };
 
-  const filesChangeHandler = async (e) => {
+  const filesChangHandler = async (e) => {
     const files = e.target.files;
     console.log(files);
     const imgSrcList = await Promise.all(filesPreview(files));
@@ -40,7 +44,7 @@ const BBsInput = () => {
     setImages(imgSrcList);
   };
 
-  const inputChangeHandler = (e) => {
+  const inputChangHandler = (e) => {
     const { name, value } = e.target;
     setBBs({ ...bbs, [name]: value });
   };
@@ -51,16 +55,18 @@ const BBsInput = () => {
    * 2. formData 에 각 데이터들 append
    * 3. fetch 보내기
    */
-  const insertButtonClickHandler = async (e) => {
+
+  const insertButtonClickHandler = async () => {
     // alert("Hello");
     // js 에서 제공하는 Http 객체다
     const formData = new FormData();
     formData.append("b_nickname", bbs.b_nickname);
     formData.append("b_title", bbs.b_title);
     formData.append("b_content", bbs.b_content);
-
+    console.log(bbs, formData);
     await bbsInsert(formData);
   };
+
   return (
     <section className="main">
       <div className="bbs input">
@@ -68,29 +74,32 @@ const BBsInput = () => {
           name="b_nickname"
           placeholder="작성"
           value={bbs.b_nickname}
-          onChange={inputChangeHandler}
+          onChange={inputChangHandler}
         />
         <input
           name="b_title"
           placeholder="제목"
           value={bbs.b_title}
-          onChange={inputChangeHandler}
+          onChange={inputChangHandler}
         />
         <input
           name="b_content"
           placeholder="내용"
           value={bbs.b_content}
-          onChange={inputChangeHandler}
+          onChange={inputChangHandler}
         />
       </div>
       <div className="image main">
         <label htmlFor="main_image">대표이미지</label>
+
         <input
           id="main_image"
           type="file"
           accept="image/*"
           onChange={fileChangeHandler}
+          ref={imgRef}
         />
+
         <div className="thumb main">
           <img src={image ? image : ""} width="100px" />
         </div>
@@ -102,7 +111,7 @@ const BBsInput = () => {
           type="file"
           accept="image/*"
           multiple="multiple"
-          onChange={filesChangeHandler}
+          onChange={filesChangHandler}
         />
         <div className="thumb gallery">{thumbImages}</div>
       </div>

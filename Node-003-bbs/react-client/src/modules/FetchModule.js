@@ -4,8 +4,6 @@ export const hello = async () => {
   // proxy 설정된 URL 과 합성하여 http://localhost:3000/bbs 로 요청
   const res = await fetch("/bbs");
   const json = await res.json();
-  console.log(json);
-  //   setTitle(json.title);
   return json.title;
 };
 
