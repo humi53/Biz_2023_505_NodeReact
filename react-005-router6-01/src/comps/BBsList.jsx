@@ -18,7 +18,10 @@ import BBsItem from "./BBsItem";
 //     background-color: #aaa;
 //   }
 // `;
-const BBsList = ({ children }) => {
+const BBsList = ({ bbsList }) => {
+  const bbsListItemView = bbsList?.map((item, index) => {
+    return <BBsItem item={item} key={item.id} seq={index} />;
+  });
   return (
     <Table>
       <thead>
@@ -30,7 +33,7 @@ const BBsList = ({ children }) => {
           <th>조회수</th>
         </tr>
       </thead>
-      <tbody>{children}</tbody>
+      <tbody>{bbsListItemView}</tbody>
     </Table>
   );
 };
