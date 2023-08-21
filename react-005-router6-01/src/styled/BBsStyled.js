@@ -12,7 +12,6 @@ export const Table = styled.table`
     background-color: #aaa;
   }
 `;
-
 export const Form = styled.form`
   width: 80%;
   margin: 0px auto;
@@ -20,11 +19,13 @@ export const Form = styled.form`
   border: 1px solid #ddd;
   padding: 10px;
 `;
+
 /*
 ${({color}) => color ?} 에서
-color : 부모로 부터 받은 props.color 를 전개한 변수
+{color} : 부모로 부터 받은 props.color 를 전개한 변수
 
-${()}
+${({bgColor}) => bgColor ?} 에서
+{bgColor} : 부모로 부터 받은 props.bgColor 를 전개한 변수
 */
 export const Button = styled.button`
   border: 0;
@@ -41,15 +42,19 @@ export const Button = styled.button`
 export const InputDiv = styled.div`
   width: 90%;
   display: flex;
-  & label {
-    flex: 1;
+  & label,
+  input {
     margin: 5px;
     padding: 8px;
   }
+  & label {
+    flex: 1;
+    text-align: right;
+    color: blue;
+  }
   & input {
     flex: 3;
-    margin: 5px;
-    padding: 8px;
+    border-radius: 5px;
   }
   & textarea {
     flex: 3;

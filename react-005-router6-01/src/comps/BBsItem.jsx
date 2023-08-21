@@ -9,4 +9,5 @@ const BBsItem = ({ item, seq }) => {
     </tr>
   );
 };
+
 export default BBsItem;

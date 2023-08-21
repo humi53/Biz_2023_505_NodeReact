@@ -18,10 +18,12 @@ import BBsItem from "./BBsItem";
 //     background-color: #aaa;
 //   }
 // `;
+
 const BBsList = ({ bbsList }) => {
   const bbsListItemView = bbsList?.map((item, index) => {
     return <BBsItem item={item} key={item.id} seq={index} />;
   });
+
   return (
     <Table>
       <thead>

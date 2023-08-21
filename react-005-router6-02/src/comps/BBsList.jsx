@@ -1,6 +1,4 @@
 import { Table } from "../styled/BBsStyled";
-import BBsItem from "./BBsItem";
-
 const BBsList = ({ children }) => {
   return (
     <Table>

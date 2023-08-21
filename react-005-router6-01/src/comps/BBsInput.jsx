@@ -1,5 +1,4 @@
 import { Form, InputDiv } from "../styled/BBsStyled";
-
 const BBsInput = () => {
   return (
     <Form>
@@ -13,7 +12,7 @@ const BBsInput = () => {
       </InputDiv>
       <InputDiv>
         <label htmlFor="">내용</label>
-        <textarea />
+        <textarea rows={10} />
       </InputDiv>
     </Form>
   );

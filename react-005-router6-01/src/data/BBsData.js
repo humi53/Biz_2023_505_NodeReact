@@ -7,5 +7,4 @@ export const BBsDto = {
   bSubject: moment().format("HH:mm:ss 게시판 작성"),
   bContent: "내용없음",
 };
-
 export const BBsList = [BBsDto, BBsDto, BBsDto];
