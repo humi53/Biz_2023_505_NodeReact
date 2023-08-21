@@ -5,7 +5,7 @@
 }
 
 html {
-  width: 100vw;
+  width: 98vw;
   height: 100vh;
 }
 
@@ -28,6 +28,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-section {
-  flex: 1;
+
+div {
+  height: 100%;
 }
