@@ -19,16 +19,15 @@ export const deleteAction = async ({ params }) => {
   return redirect(`/content/${params.id}`);
 };
 
-export const completeAction = async ({ request, params }) => {
+export const completeAction = async ({ params }) => {
   const { id } = params;
   const result = await getBucket(id);
 
   // 데이터를 변경한 객체를 새로 생성한다.
   const newBucket = { ...result, complete: true };
-  // console.log(newBucket);
+
   await saveBucket(newBucket);
   return redirect(`/content/${id}`);
-  return "";
 };
 
 const BucketDetail = () => {
