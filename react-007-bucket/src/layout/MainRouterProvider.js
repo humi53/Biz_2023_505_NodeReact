@@ -6,8 +6,11 @@ import BucketDetail, {
   detailLoader,
   deleteAction,
   completeAction,
+  favoriteAction,
 } from "../comps/BucketDetail";
 import BucketUpdate, { updateAction } from "../comps/BucketUpdate";
+import BucketIndex from "../comps/BucketIndex";
+import ErrorPage from "../shareComps/ErrorPage";
 /**
  * RouterProvider 에 연결하여 각종 Routeing 을 수행하는 설정만들기
  * createBrowserRouter() 함수를 사용하여 router 객체 생성
@@ -19,8 +22,16 @@ const router = createBrowserRouter([
     element: <BucketMain />,
     loader: mainLoader,
     action: mainAction,
+    errorElement: <ErrorPage />,
     children: [
-      { path: "content/:id", element: <BucketDetail />, loader: detailLoader },
+      // { path:"", element: <BucketIndex /> },
+      { index: true, element: <BucketIndex /> },
+      {
+        path: "content/:id",
+        element: <BucketDetail />,
+        loader: detailLoader,
+        action: favoriteAction,
+      },
       {
         path: "content/:id/edit",
         element: <BucketUpdate />,
