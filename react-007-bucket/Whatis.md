@@ -31,6 +31,15 @@
 - 이미지 바로 변경
 - 라우터 랜더링 useSubmit
 
+# 2023-08-25
+## fireBase
+- fireBase와 fireStore는 다른것이다.
+- 데이터를 저장할때 fireBase에서 생성하는 id 값이 따로 있다 `{id : {data}`
+  - 다른 방식을 사용하면 해결. 문서를 살펴볼것.
+- orderBy 같은 문법을 사용하려면 query를 사용해야됨. 예전 문법을 병행할시 동기, 비동기가 무너져 문제가 생길 가능성이 다분함.
+- React 같은 경우 firebase에 올려서 호스팅 테스트 하는것이 적절.
+
+
 
 basic : html, css, javaScript
 
